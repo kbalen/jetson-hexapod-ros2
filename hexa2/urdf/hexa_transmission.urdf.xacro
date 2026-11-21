@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Transmissions for ROS2 Control -->
+  <xacro:macro name="joint_trans" params="joint_name">
+    <transmission name="${joint_name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${joint_name}_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <!-- Create transmissions for all 18 joints -->
+  <xacro:joint_trans joint_name="j1" />
+  <xacro:joint_trans joint_name="j2" />
+  <xacro:joint_trans joint_name="j3" />
+  <xacro:joint_trans joint_name="j4" />
+  <xacro:joint_trans joint_name="j5" />
+  <xacro:joint_trans joint_name="j6" />
+  <xacro:joint_trans joint_name="j7" />
+  <xacro:joint_trans joint_name="j8" />
+  <xacro:joint_trans joint_name="j9" />
+  <xacro:joint_trans joint_name="j10" />
+  <xacro:joint_trans joint_name="j11" />
+  <xacro:joint_trans joint_name="j12" />
+  <xacro:joint_trans joint_name="j13" />
+  <xacro:joint_trans joint_name="j14" />
+  <xacro:joint_trans joint_name="j15" />
+  <xacro:joint_trans joint_name="j16" />
+  <xacro:joint_trans joint_name="j17" />
+  <xacro:joint_trans joint_name="j18" />
+</robot>

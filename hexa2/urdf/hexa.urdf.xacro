@@ -1,0 +1,1174 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="hexa2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Add a "world" link for a global reference frame -->
+  <link name="world"/>
+
+  <!-- Connect your existing base_link to the world with a fixed joint -->
+  <joint name="world_joint" type="fixed">
+      <parent link="world"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0.046028 " rpy="0 0 0"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000206 -1.132E-05 0.01378"
+        rpy="0 0 0" />
+      <mass
+        value="0.2893" />
+      <inertia
+        ixx="0.00023251"
+        ixy="-5.3845E-11"
+        ixz="3.7331E-07"
+        iyy="0.00042394"
+        iyz="2.1275E-13"
+        izz="0.0006031" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+            filename="package://hexa2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="l1">
+    <inertial>
+      <origin
+        xyz="0.018943 -0.028918 -0.023429"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006" />
+      <inertia
+        ixx="8.2697E-06"
+        ixy="7.0269E-07"
+        ixz="-4.1184E-08"
+        iyy="7.8851E-06"
+        iyz="6.2787E-08"
+        izz="8.8901E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j1"
+    type="revolute">
+    <origin
+      xyz="0.097516 -0.064862 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k1">
+    <inertial>
+      <origin
+        xyz="0.0036022 -0.038811 -0.028429"
+        rpy="0 0 0" />
+      <mass
+        value="0.093213" />
+      <inertia
+        ixx="5.1867E-05"
+        ixy="4.2256E-06"
+        ixz="9.7918E-08"
+        iyy="1.5147E-05"
+        iyz="1.1068E-08"
+        izz="4.4652E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j2"
+    type="revolute">
+    <origin
+      xyz="0.01829 -0.071466 -0.023028"
+      rpy="1.5708 0 -0.99922" />
+    <parent
+      link="l1" />
+    <child
+      link="k1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1"
+      upper="1"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k2">
+    <inertial>
+      <origin
+        xyz="-0.00472294512859113 -0.0595019586091517 -0.0234813696281869"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.83247823151032E-05"
+        ixy="1.3453174116967E-06"
+        ixz="-2.57451496791474E-08"
+        iyy="8.33806539966062E-06"
+        iyz="1.93561773464471E-07"
+        izz="1.09253009204658E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j3"
+    type="revolute">
+    <origin
+      xyz="0.02107 -0.074789 0"
+      rpy="0 0 0" />
+    <parent
+      link="k1" />
+    <child
+      link="k2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="l2">
+    <inertial>
+      <origin
+        xyz="0.000650587892191926 -0.034563754220366 -0.0234287833345278"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006302484934" />
+      <inertia
+        ixx="8.79397464513076E-06"
+        ixy="1.31488143120497E-07"
+        ixz="-1.45875992874423E-09"
+        iyy="7.36085645294536E-06"
+        iyz="7.50745445120841E-08"
+        izz="8.89014001569039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j4"
+    type="revolute">
+    <origin
+      xyz="6.9649E-05 -0.07005 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k3">
+    <inertial>
+      <origin
+        xyz="0.00411603477847871 -0.0382374935313686 -0.0284288255218114"
+        rpy="0 0 0" />
+      <mass
+        value="0.0932130469883491" />
+      <inertia
+        ixx="5.17328657549768E-05"
+        ixy="4.77292915372466E-06"
+        ixz="9.77424268124241E-08"
+        iyy="1.52811343815701E-05"
+        iyz="1.25324970207683E-08"
+        izz="4.46523975184934E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j5"
+    type="revolute">
+    <origin
+      xyz="-0.022544 -0.07024 -0.023028"
+      rpy="1.5708 0 -1.5603" />
+    <parent
+      link="l2" />
+    <child
+      link="k3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.0"
+      upper="1.0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k4">
+    <inertial>
+      <origin
+        xyz="0.00160179062620821 -0.0575654654125066 -0.0234813696281871"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.84950557113844E-05"
+        ixy="2.83573097880976E-07"
+        ixz="-5.48161927375308E-09"
+        iyy="8.16779200337941E-06"
+        iyz="1.95189458549513E-07"
+        izz="1.09253009204659E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j6"
+    type="revolute">
+    <origin
+      xyz="0.0098211 -0.07627 0"
+      rpy="0 0 0" />
+    <parent
+      link="k3" />
+    <child
+      link="k4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="l3">
+    <inertial>
+      <origin
+        xyz="-0.0177776320129332 -0.0296484766965196 -0.0234287833345277"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006302484934" />
+      <inertia
+        ixx="8.50918645579032E-06"
+        ixy="-5.86787827120526E-07"
+        ixz="3.85753841483371E-08"
+        iyy="7.64564464228585E-06"
+        iyz="6.44224724147887E-08"
+        izz="8.89014001569042E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j7"
+    type="revolute">
+    <origin
+      xyz="-0.097576 -0.064862 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k5">
+    <inertial>
+      <origin
+        xyz="0.00464312664969035 -0.0381770770678641 -0.0284288206576896"
+        rpy="0 0 0" />
+      <mass
+        value="0.0932129527959196" />
+      <inertia
+        ixx="5.15942311876783E-05"
+        ixy="5.27391327593912E-06"
+        ixz="9.7561289508613E-08"
+        iyy="1.54197427660874E-05"
+        iyz="1.38813109112531E-08"
+        izz="4.46523929629764E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j8"
+    type="revolute">
+    <origin
+      xyz="-0.056361 -0.047595 -0.023028"
+      rpy="1.5708 0 -2.1193" />
+    <parent
+      link="l3" />
+    <child
+      link="k5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1"
+      upper="1"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k6">
+    <inertial>
+      <origin
+        xyz="0.00694210185227984 -0.0571677860620933 -0.0234813696281871"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.83534927801573E-05"
+        ixy="1.23382792982008E-06"
+        ixz="-2.35890021249202E-08"
+        iyy="8.30935493460645E-06"
+        iyz="1.93836353291826E-07"
+        izz="1.09253009204659E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j9"
+    type="revolute">
+    <origin
+      xyz="0.010872 -0.076128 0"
+      rpy="0 0 0" />
+    <parent
+      link="k5" />
+    <child
+      link="k6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="l4">
+    <inertial>
+      <origin
+        xyz="-0.0194710406320587 0.0296043670075474 -0.0235665545152595"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006302484934" />
+      <inertia
+        ixx="8.37516296696656E-06"
+        ixy="7.27543039759139E-07"
+        ixz="6.34574694460207E-08"
+        iyy="7.87323836218128E-06"
+        iyz="-9.76568372987828E-08"
+        izz="8.79656978461872E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j10"
+    type="revolute">
+    <origin
+      xyz="-0.097749 0.064762 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k7">
+    <inertial>
+      <origin
+        xyz="-0.00970802983952468 -0.0375028089758656 0.0284288202458129"
+        rpy="0 0 0" />
+      <mass
+        value="0.0932129468846321" />
+      <inertia
+        ixx="4.9588948701202E-05"
+        ixy="-9.81494088923718E-06"
+        ixz="9.48808833042008E-08"
+        iyy="1.74250245583001E-05"
+        iyz="-2.6610581668572E-08"
+        izz="4.46523936708905E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j11"
+    type="revolute">
+    <origin
+      xyz="-0.01842 0.071351 -0.023278"
+      rpy="1.5708 0 -1.0003" />
+    <parent
+      link="l4" />
+    <child
+      link="k7" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.0"
+      upper="1.0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k8">
+    <inertial>
+      <origin
+        xyz="0.00275610010541993 -0.0575217563498964 0.0234813696281869"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.84787617109144E-05"
+        ixy="4.98418144836641E-07"
+        ixz="9.29499424968489E-09"
+        iyy="8.1840860038494E-06"
+        iyz="-1.95045061359208E-07"
+        izz="1.09253009204658E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j12"
+    type="revolute">
+    <origin
+      xyz="-0.021023 -0.074802 0"
+      rpy="0 0 0" />
+    <parent
+      link="k7" />
+    <child
+      link="k8" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="l5">
+    <inertial>
+      <origin
+        xyz="9.26220855316517E-05 0.0354334783836157 -0.0235665545152594"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006302484934" />
+      <inertia
+        ixx="8.89193465172238E-06"
+        ixy="5.37166352375865E-08"
+        ixz="-9.49631593095016E-10"
+        iyy="7.35646667742541E-06"
+        iyz="-1.16459462902465E-07"
+        izz="8.79656978461868E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j13"
+    type="revolute">
+    <origin
+      xyz="6.9649E-05 0.07005 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k9">
+    <inertial>
+      <origin
+        xyz="-0.00373947337447317 -0.0382761552071941 0.0284288255066971"
+        rpy="0 0 0" />
+      <mass
+        value="0.093213046514649" />
+      <inertia
+        ixx="5.18232870901142E-05"
+        ixy="-4.41323621172975E-06"
+        ixz="9.78612005999807E-08"
+        iyy="1.51907128428655E-05"
+        iyz="-1.15701762816693E-08"
+        izz="4.4652397424735E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j14"
+    type="revolute">
+    <origin
+      xyz="0.024001 0.069672 -0.023278"
+      rpy="1.5708 0 -1.5847" />
+    <parent
+      link="l5" />
+    <child
+      link="k9" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.0"
+      upper="1.0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k10">
+    <inertial>
+      <origin
+        xyz="-0.00355296013130013 -0.057478039420933 0.0234813696281871"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.84639586385374E-05"
+        ixy="-6.32925229186083E-07"
+        ixz="-1.20974965016117E-08"
+        iyy="8.19888907622643E-06"
+        iyz="-1.94891311907679E-07"
+        izz="1.09253009204658E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j15"
+    type="revolute">
+    <origin
+      xyz="-0.00907 -0.076363 0"
+      rpy="0 0 0" />
+    <parent
+      link="k9" />
+    <child
+      link="k10" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="l6">
+    <inertial>
+      <origin
+        xyz="0.000650587892191926 -0.034563754220366 -0.0234287833345278"
+        rpy="0 0 0" />
+      <mass
+        value="0.012006302484934" />
+      <inertia
+        ixx="8.79397464513076E-06"
+        ixy="1.31488143120497E-07"
+        ixz="-1.45875992874423E-09"
+        iyy="7.36085645294536E-06"
+        iyz="7.50745445120841E-08"
+        izz="8.89014001569039E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/l6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j16"
+    type="revolute">
+    <origin
+      xyz="0.097516 0.064862 0.046028"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="0.5"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k11">
+    <inertial>
+      <origin
+        xyz="-0.00743940148896982 -0.0377319904214699 0.0284288203759906"
+        rpy="0 0 0" />
+      <mass
+        value="0.0932129489301206" />
+      <inertia
+        ixx="5.06244629276949E-05"
+        ixy="-7.87112254439946E-06"
+        ixz="9.62754186057486E-08"
+        iyy="1.63895104311031E-05"
+        iyz="-2.10212070631134E-08"
+        izz="4.46523932639303E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j17"
+    type="revolute">
+    <origin
+      xyz="0.057135 0.046539 -0.023278"
+      rpy="1.5708 0 -2.1402" />
+    <parent
+      link="l6" />
+    <child
+      link="k11" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.0"
+      upper="1.0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <link
+    name="k12">
+    <inertial>
+      <origin
+        xyz="-0.00921184682826581 -0.0568461996916372 0.0234813696281869"
+        rpy="0 0 0" />
+      <mass
+        value="0.0167426402160334" />
+      <inertia
+        ixx="1.82394494380926E-05"
+        ixy="-1.62935340690696E-06"
+        ixz="-3.12848886055695E-08"
+        iyy="8.42339827667106E-06"
+        iyz="-1.9274394575097E-07"
+        izz="1.09253009204658E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hexa2/meshes/k12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="j18"
+    type="revolute">
+    <origin
+      xyz="-0.016444 -0.075121 0"
+      rpy="0 0 0" />
+    <parent
+      link="k11" />
+    <child
+      link="k12" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.4"
+      upper="0"
+      effort="10.0"
+      velocity="5.0" />
+    <dynamics damping="10.0" friction="5.0" />
+    <ros2_control>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </ros2_control>
+  </joint>
+  <xacro:include filename="$(find hexa2)/urdf/hexa_transmission.urdf.xacro"/>
+
+</robot>
